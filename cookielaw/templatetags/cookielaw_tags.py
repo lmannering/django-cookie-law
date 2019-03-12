@@ -31,6 +31,6 @@ class CookielawBanner(InclusionTag):
         if django.VERSION[:2] < (1, 10):
             return render_to_string(template_filename, data, context_instance=context)
         else:
-            return render_to_string(template_filename, data, getattr(context, 'request'))
+            return render_to_string(template_filename, data, getattr(context, 'request', None))
 
 register.tag(CookielawBanner)
